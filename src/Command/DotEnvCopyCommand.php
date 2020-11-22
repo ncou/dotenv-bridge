@@ -5,11 +5,8 @@ declare(strict_types=1);
 namespace Chiron\DotEnv\Command;
 
 use Chiron\Console\AbstractCommand;
-use Chiron\Security\Config\SecurityConfig;
 use Chiron\Filesystem\Filesystem;
-use Chiron\Security\Security;
 use Symfony\Component\Console\Input\InputOption;
-use Chiron\Core\Directories;
 
 final class DotEnvCopyCommand extends AbstractCommand
 {
@@ -42,10 +39,10 @@ final class DotEnvCopyCommand extends AbstractCommand
      * Copy the file to the given path.
      *
      * @param Filesystem $filesystem
-     * @param string $from
-     * @param string $to
+     * @param string     $from
+     * @param string     $to
      *
-     * @param bool Return true if the copy is a success.
+     * @return bool Return true if the copy is a success.
      */
     public function copyFile(Filesystem $filesystem, string $from, string $to): bool
     {

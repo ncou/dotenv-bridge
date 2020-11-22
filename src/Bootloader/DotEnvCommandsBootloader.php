@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Chiron\DotEnv\Bootloader;
 
-use Chiron\Core\Container\Bootloader\AbstractBootloader;
 use Chiron\Console\Console;
+use Chiron\Core\Container\Bootloader\AbstractBootloader;
 use Chiron\DotEnv\Command\DotEnvCopyCommand;
 use Chiron\DotEnv\Command\DotEnvKeyCommand;
 

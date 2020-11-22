@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Chiron\DotEnv\Command;
 
 use Chiron\Console\AbstractCommand;
-use Chiron\Security\Config\SecurityConfig;
+use Chiron\Core\Environment;
 use Chiron\Filesystem\Filesystem;
+use Chiron\Security\Config\SecurityConfig;
 use Chiron\Security\Security;
 use Symfony\Component\Console\Input\InputOption;
-use Chiron\Core\Environment;
 
 final class DotEnvKeyCommand extends AbstractCommand
 {
@@ -33,7 +33,7 @@ final class DotEnvKeyCommand extends AbstractCommand
         }
 
         if ($filesystem->missing($filepath)) {
-            $this->error(sprint('Unable to find file [%s].', $filepath));
+            $this->error(sprintf('Unable to find file [%s].', $filepath));
 
             return self::FAILURE;
         }
