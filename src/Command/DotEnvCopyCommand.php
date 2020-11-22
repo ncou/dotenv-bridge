@@ -9,7 +9,7 @@ use Chiron\Security\Config\SecurityConfig;
 use Chiron\Filesystem\Filesystem;
 use Chiron\Security\Security;
 use Symfony\Component\Console\Input\InputOption;
-use Chiron\Core\Environment;
+use Chiron\Core\Directories;
 
 final class DotEnvCopyCommand extends AbstractCommand
 {
@@ -24,7 +24,7 @@ final class DotEnvCopyCommand extends AbstractCommand
 
     protected function perform(Filesystem $filesystem, Directories $directories): int
     {
-        $copied = $this->copyFile($filesystem, '../../resources/.env.sample', directory('@root/.env'));
+        $copied = $this->copyFile($filesystem, __DIR__ . '/../../resources/.env.sample', directory('@root/.env'));
 
         if ($copied) {
             $this->success('Dotenv file ".env" has been copied.');
