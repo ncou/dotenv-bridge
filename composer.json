@@ -1,0 +1,42 @@
+{
+    "name": "chiron/dotenv-bridge",
+    "description": "Give it a nice description!",
+    "keywords": [],
+    "license": "MIT",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Chiron\\DotEnv\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Chiron\\DotEnv\\Test\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^7.2",
+        "chiron/core": "^1.0",
+        "vlucas/phpdotenv": "^5.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.0",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-phpunit": "^0.12",
+        "chiron/coding-standard": "^3.0"
+    },
+    "scripts": {
+        "phpunit": "phpunit --colors=always",
+        "test-coverage": "phpunit --coverage-clover clover.xml",
+        "phpstan": "phpstan analyse --ansi",
+        "check-style": "phpcs src tests",
+        "fix-style": "phpcbf src tests"
+    },
+    "extra": {
+        "chiron": {
+            "bootloaders": [
+                "Chiron\\DotEnv\\Bootloader\\DotEnvCommandsBootloader"
+            ]
+      }
+    }
+}
