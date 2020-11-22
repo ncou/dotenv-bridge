@@ -13,7 +13,7 @@ final class DotEnvCommandsBootloader extends AbstractBootloader
 {
     public function boot(Console $console): void
     {
-        $console->addCommand(DotEnvKeyCopy::getDefaultName(), DotEnvKeyCopy::class);
+        $console->addCommand(DotEnvCopyCommand::getDefaultName(), DotEnvCopyCommand::class);
         $console->addCommand(DotEnvKeyCommand::getDefaultName(), DotEnvKeyCommand::class);
     }
 }
