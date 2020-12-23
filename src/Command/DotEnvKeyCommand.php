@@ -8,7 +8,7 @@ use Chiron\Console\AbstractCommand;
 use Chiron\Core\Environment;
 use Chiron\Filesystem\Filesystem;
 use Chiron\Security\Config\SecurityConfig;
-use Chiron\Security\Security;
+use Chiron\Security\Support\Random;
 use Symfony\Component\Console\Input\InputOption;
 
 final class DotEnvKeyCommand extends AbstractCommand
@@ -61,7 +61,7 @@ final class DotEnvKeyCommand extends AbstractCommand
     private function updateEnvironmentFile(Environment $environment, Filesystem $filesystem, string $filepath): bool
     {
         $oldKey = $environment->get('APP_KEY');
-        $newKey = Security::generateKey(SecurityConfig::KEY_BYTES_SIZE, false);
+        $newKey = Random::bytes(SecurityConfig::KEY_BYTES_SIZE);
 
         $content = preg_replace(
             sprintf('/^APP_KEY=%s/m', $oldKey),
