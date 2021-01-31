@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Chiron\DotEnv\Command;
 
-use Chiron\Core\Console\AbstractCommand;
+use Chiron\Core\Command\AbstractCommand;
 use Chiron\Core\Environment;
 use Chiron\Filesystem\Filesystem;
 use Chiron\Security\Config\SecurityConfig;
