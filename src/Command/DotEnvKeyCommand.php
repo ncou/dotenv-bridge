@@ -51,6 +51,7 @@ final class DotEnvKeyCommand extends AbstractCommand
 
     /**
      * Update the environment file with the new security key.
+     * Security key is by default a random 32 bytes hexabits.
      *
      * @param  Environment $environment
      * @param  Filesystem  $filesystem
@@ -61,7 +62,7 @@ final class DotEnvKeyCommand extends AbstractCommand
     private function updateEnvironmentFile(Environment $environment, Filesystem $filesystem, string $filepath): bool
     {
         $oldKey = $environment->get('APP_KEY');
-        $newKey = Random::bytes(SecurityConfig::KEY_BYTES_SIZE);
+        $newKey = Random::hex(SecurityConfig::KEY_BYTES_SIZE);
 
         $content = preg_replace(
             sprintf('/^APP_KEY=%s/m', $oldKey),
