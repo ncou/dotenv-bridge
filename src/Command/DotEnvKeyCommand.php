@@ -8,7 +8,7 @@ use Chiron\Core\Command\AbstractCommand;
 use Chiron\Core\Environment;
 use Chiron\Filesystem\Filesystem;
 use Chiron\Security\Config\SecurityConfig;
-use Chiron\Security\Support\Random;
+use Chiron\Support\Random;
 use Symfony\Component\Console\Input\InputOption;
 
 final class DotEnvKeyCommand extends AbstractCommand
